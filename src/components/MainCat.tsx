@@ -10,15 +10,19 @@ export default function MainCat() {
 				<div className={style.cat_info}>
 					<img src="/logos/CatwikiLogo.svg" alt="cat wiki logo" className={style.cat_logo} />
 					<h2>Get to know more about your cat breed</h2>
-					<span className={style.input}>
-						<input list="breeds-options" name="breeds-names" placeholder="Enter your breed" />
-						<img src="/icons/search.svg" alt="search input icon" />
-					</span>
-					<datalist id="breeds-options">
-						{favourites.map((cat: Pick<Breed, 'name'>) => (
-							<option value={cat.name} key={cat.name}></option>
-						))}
-					</datalist>
+					<form onSubmit={() => console.log('submitedd')}>
+						<span className={style.input}>
+							<input list="breeds-options" name="breeds-names" placeholder="Enter your breed" />
+							<button type="submit" className={style.form_btn}>
+								<img src="/icons/search.svg" alt="search input icon" />
+							</button>
+						</span>
+						<datalist id="breeds-options">
+							{favourites.map((cat: Pick<Breed, 'name'>) => (
+								<option value={cat.name} key={cat.name}></option>
+							))}
+						</datalist>
+					</form>
 				</div>
 			</section>
 
