@@ -1,7 +1,7 @@
 .container {
     display: flex;
     justify-content: flex-start;
-    margin-top: 2rem;
+    margin: 4rem 0;
 }
 
 .content_left h3{
