@@ -1,6 +1,7 @@
 import style from './MainCat.module.css'
 import { favourites } from '../api/mock'
 import MainCard from './MainCard'
+import { Breed, Favourite } from '../models/types'
 
 export default function MainCat() {
 	return (
@@ -10,9 +11,14 @@ export default function MainCat() {
 					<img src="/logos/CatwikiLogo.svg" alt="cat wiki logo" className={style.cat_logo} />
 					<h2>Get to know more about your cat breed</h2>
 					<span className={style.input}>
-						<input type="text" placeholder="Enter your breed" />
+						<input list="breeds-options" name="breeds-names" placeholder="Enter your breed" />
 						<img src="/icons/search.svg" alt="search input icon" />
 					</span>
+					<datalist id="breeds-options">
+						{favourites.map((cat: Pick<Breed, 'name'>) => (
+							<option value={cat.name} key={cat.name}></option>
+						))}
+					</datalist>
 				</div>
 			</section>
 
@@ -30,7 +36,7 @@ export default function MainCat() {
 						</a>
 					</span>
 					<div className={style.cat_card}>
-						{favourites.map((cat: any) => (
+						{favourites.map((cat: Favourite) => (
 							<MainCard catImage={cat.image.url} name={cat.name} key={cat.id} />
 						))}
 					</div>
