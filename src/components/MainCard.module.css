@@ -1,0 +1,14 @@
+.card_img {
+    width: 20%;
+}
+
+.img_content {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: var(--rounded);
+}
+.card_img p {
+    font-weight: 700;
+    color: var(--brown);
+}
