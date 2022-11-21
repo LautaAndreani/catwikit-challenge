@@ -1,16 +1,24 @@
 import { createBrowserRouter } from 'react-router-dom'
-import App from '../App'
-import Cat from '../views/Cat/Cat'
+import { Cat, Home } from '../views'
+import { loaderCat } from '../views/Cat/Cat'
+import Wrapper from '../Wrapper'
 
 export const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <App />,
-		errorElement: <p>Ups... that route not exist 😾</p>,
-	},
-	{
-		path: '/cat/:id',
-		element: <Cat />,
-		errorElement: <p>Ups... not found cat 😾</p>,
+		element: <Wrapper />,
+		errorElement: <p>Oh no... that page doesn't exist </p>,
+		children: [
+			{
+				index: true,
+				path: '/',
+				element: <Home />,
+			},
+			{
+				path: '/cat/:id',
+				element: <Cat />,
+				loader: loaderCat,
+			},
+		],
 	},
 ])
