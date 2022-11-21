@@ -16,7 +16,7 @@ export default function MainCat() {
 
 	function handleForm (catName: string, id = '') {
 		setValue(catName)
-		return navigate(`/cat/${id}}`)
+		return navigate(`/cat/${id}`)
 	}
 	return (
 		<div className={style.main_container}>
@@ -26,7 +26,7 @@ export default function MainCat() {
 					<h2>Get to know more about your cat breed</h2>
 					<form onMouseEnter={() => setIsFocus(true)} className={style.form}>
 						<span className={style.input}>
-							<input type="text" onChange={(e) => setValue(e.target.value)} value={value || ''} name="breeds-names" placeholder="Enter your breed" />
+							<input type="text" autoComplete='off' onChange={(e) => setValue(e.target.value)} value={value || ''} name="breeds-names" placeholder="Enter your breed" />
 							<button type="submit" className={style.form_btn}>
 								<img src="/icons/search.svg" alt="search input icon" />
 							</button>
