@@ -1,0 +1,25 @@
+
+
+.datalist {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 4;
+    position: absolute;
+    background-color: var(--white);
+    width: 24rem;
+    margin-top: 1rem;
+    max-height: 10rem;
+    overflow: auto;
+    border-radius: var(--rounded);
+}
+
+.datalist option {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.datalist option:hover {
+    background-color: var(--hover);
+}

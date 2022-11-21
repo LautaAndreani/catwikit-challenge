@@ -67,6 +67,10 @@
     outline: none;
 }
 
+.form {
+    width: fit-content;
+}
+
 .bottom {
     min-width: 90%;
     min-height: 40rem;

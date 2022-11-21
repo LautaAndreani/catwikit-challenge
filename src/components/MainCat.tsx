@@ -1,27 +1,41 @@
-import style from './MainCat.module.css'
+import { useState } from 'react'
+
 import { favourites } from '../api/mock'
+import { Favourite } from '../models/types'
+
+import style from './MainCat.module.css'
+
 import MainCard from './MainCard'
-import { Breed, Favourite } from '../models/types'
+import DataList from './DataList'
+import { useNavigate } from 'react-router-dom'
 
 export default function MainCat() {
+	const [isFocus, setIsFocus] = useState(false)
+	const [value, setValue] = useState('')
+	const navigate = useNavigate()
+
+	function handleForm (catName: string, id = '') {
+		setValue(catName)
+		return navigate(`/cat/${id}}`)
+	}
 	return (
 		<div className={style.main_container}>
 			<section className={style.cat_container}>
 				<div className={style.cat_info}>
 					<img src="/logos/CatwikiLogo.svg" alt="cat wiki logo" className={style.cat_logo} />
 					<h2>Get to know more about your cat breed</h2>
-					<form onSubmit={() => console.log('submitedd')}>
+					<form onMouseEnter={() => setIsFocus(true)} className={style.form}>
 						<span className={style.input}>
-							<input list="breeds-options" name="breeds-names" placeholder="Enter your breed" />
+							<input type="text" onChange={(e) => setValue(e.target.value)} value={value || ''} name="breeds-names" placeholder="Enter your breed" />
 							<button type="submit" className={style.form_btn}>
 								<img src="/icons/search.svg" alt="search input icon" />
 							</button>
 						</span>
-						<datalist id="breeds-options">
-							{favourites.map((cat: Pick<Breed, 'name'>) => (
-								<option value={cat.name} key={cat.name}></option>
+						<DataList isFocus={isFocus} setIsFocus={setIsFocus}>
+							{favourites.map((cat: Favourite) => (
+								<option value={cat.name} key={cat.id} onClick={() => handleForm(cat.name, cat.id)}>{cat.name}</option>
 							))}
-						</datalist>
+						</DataList>
 					</form>
 				</div>
 			</section>
