@@ -25,3 +25,8 @@ export interface Favourite {
 	name: string
 	id: string
 }
+
+export interface Image {
+	url: string
+	id: string
+}

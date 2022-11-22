@@ -1,0 +1,55 @@
+.cat {
+	display: flex;
+	justify-content: space-between;
+	min-height: 80vh;
+}
+
+.cat span {
+	width: 100%;
+}
+
+.cat_image {
+	object-fit: cover;
+	width: 80%;
+	height: 60%;
+	border-radius: var(--rounded);
+}
+
+.right {
+	width: 50%;
+}
+
+.detail {
+	display: flex;
+	flex-direction: column;
+}
+
+.detail span {
+	margin: 10px 0;
+}
+
+.chart {
+	display: flex;
+	flex-direction: column;
+	gap: 4;
+}
+
+.chart_title {
+	color: var(--brown);
+	font-size: 3rem;
+	width: 50%;
+}
+
+.photos {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 2rem;
+	margin-bottom: 4rem;
+}
+
+.photos img {
+	object-fit: cover;
+	width: 278px;
+	height: 13rem;
+	border-radius: var(--rounded);
+}

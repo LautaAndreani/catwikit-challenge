@@ -1,0 +1,25 @@
+.chart {
+	display: block;
+	height: 0.8rem;
+	min-height: 0.8rem;
+	width: 4rem;
+	background-color: var(--chart);
+	border-radius: var(--rounded);
+	margin-left: 1rem;
+}
+
+/* .chart_fill {
+	background-color: var(--chart);
+} */
+
+.chart_container {
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0;
+	min-width: 50%;
+}
+
+.chart_layout {
+	display: flex;
+	justify-content: flex-end;
+}

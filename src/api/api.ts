@@ -1,4 +1,5 @@
-import { Breed } from '../models/types'
+import { Breed, Favourite, Image } from '../models/types'
+const isProd = import.meta.env.VITE_ENVIRONMENT === 'production' 
 
 const PARAMETERS = {
 	method: 'GET',
@@ -18,6 +19,7 @@ async function handlePromise(URL = '') {
 }
 
 export const api = {
-	favourites: async (): Promise<Breed[] | undefined> => await handlePromise('https://api.thecatapi.com/v1/breeds?limit=4'),
-	breeds: async (): Promise<Breed['name'][] | undefined> => await handlePromise('https://api.thecatapi.com/v1/breeds'),
+	favourites: async (): Promise<Favourite[] | undefined> => isProd ? await handlePromise('https://api.thecatapi.com/v1/breeds?limit=4') : import('./mock/favourites.json').then(mod => mod.default),
+	breeds: async (): Promise<Breed['name'][] | undefined> => isProd ? await handlePromise('https://api.thecatapi.com/v1/breeds') : import('./mock/favourites.json').then(mod => mod.default),
+	images: async(breed_id = ''): Promise<Image[]> => isProd ? await handlePromise(`https://api.thecatapi.com/v1/images/search?breed_id=${breed_id}&limit=8`) : import('./mock/images.json').then(mod => mod.default)
 }

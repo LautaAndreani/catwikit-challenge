@@ -1,26 +1,28 @@
 :root {
-    --white: #ffff;
-    --black: #000;
-    --brown: #291507;
-    --rounded: 14px;
-    --lightgray:#E3E1DC; 
-    --small:#29150799;
-    --hover: #f5f5f5;
+	--white: #ffff;
+	--black: #000;
+	--brown: #291507;
+	--rounded: 14px;
+	--lightgray: #e3e1dc;
+	--small: #29150799;
+	--hover: #f5f5f5;
+	--chart: #544439;
+	--chart_disabled: #e0e0e0;
 }
 
 body {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 .container {
-    width: 90%;
-    margin: 0 auto;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-} 
+	width: 90%;
+	margin: 0 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
