@@ -125,6 +125,16 @@
 
 .cat_card {
     margin-top: 4rem;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+@media screen and (max-width:1200px) {
+    .bottom_title {
+        display: block;
+    }
+
+    .bottom_h1, a {
+        width: 100%;
+    }
 }
