@@ -8,13 +8,13 @@
 	margin-left: 1rem;
 }
 
-/* .chart_fill {
-	background-color: var(--chart);
-} */
+.chart_container b {
+	min-width: 9rem;
+}
 
 .chart_container {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	margin: 10px 0;
 	min-width: 50%;
 }

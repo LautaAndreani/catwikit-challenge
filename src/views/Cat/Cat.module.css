@@ -11,7 +11,9 @@
 .cat_image {
 	object-fit: cover;
 	width: 80%;
-	height: 60%;
+	height: 100vh;
+	min-height: 60%;
+	max-height: 60%;
 	border-radius: var(--rounded);
 }
 
@@ -37,13 +39,13 @@
 .chart_title {
 	color: var(--brown);
 	font-size: 3rem;
-	width: 50%;
 }
 
 .photos {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-gap: 2rem;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	place-content: center;
+	grid-gap: 1rem;
 	margin-bottom: 4rem;
 }
 
@@ -52,4 +54,21 @@
 	width: 278px;
 	height: 13rem;
 	border-radius: var(--rounded);
+}
+
+
+@media screen and (max-width:1200px) {
+	.cat {
+		display: block;
+	}
+
+	.cat_image, .right {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width:800px) {
+	.photos img {
+		width: 100%;
+	}
 }
